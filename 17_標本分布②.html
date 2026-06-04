@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>標本分布②（各種分布表） | 統計検定2級</title><style>
+:root{--primary:#1a3a5c;--accent:#2e86c1;--light:#eaf4fb;--bg:#f0f6fb;--card:#fff;--text:#2c3e50;--muted:#7f8c8d;--border:#d5e8f3;--success:#27ae60;--warn:#e67e22;--danger:#e74c3c;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Sans','Meiryo',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+header{background:var(--primary);color:#fff;padding:1.5rem 2rem;}
+.breadcrumb{font-size:0.82rem;opacity:.7;margin-bottom:.4rem;}
+.breadcrumb a{color:#aad4f5;text-decoration:none;}
+header h1{font-size:1.6rem;font-weight:700;}
+header .meta{font-size:0.85rem;opacity:.75;margin-top:.3rem;}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem;}
+.overview{background:var(--light);border-left:5px solid var(--accent);padding:1rem 1.2rem;border-radius:0 6px 6px 0;margin-bottom:2rem;}
+.overview h2{font-size:1rem;color:var(--accent);margin-bottom:.4rem;}
+h2.section{font-size:1.25rem;font-weight:700;color:var(--primary);margin:2rem 0 1rem;border-bottom:2px solid var(--border);padding-bottom:.4rem;}
+h3.subsection{font-size:1.05rem;font-weight:700;color:var(--accent);margin:1.5rem 0 .6rem;}
+p,li{margin-bottom:.6rem;}
+ul,ol{padding-left:1.5rem;}
+.formula-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;overflow-x:auto;}
+.formula-box .label{font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:.3rem;}
+.example{background:#fff;border:1px solid #a9d4f5;border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0;}
+.example-title{font-weight:700;color:var(--accent);margin-bottom:.6rem;font-size:.95rem;}
+.solution{background:#f8fffe;border-left:3px solid var(--success);padding:.8rem 1rem;margin-top:.8rem;border-radius:0 6px 6px 0;}
+.solution-title{font-weight:700;color:var(--success);font-size:.85rem;margin-bottom:.4rem;}
+.problem-block{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;margin:1rem 0;}
+.problem-title{font-weight:700;color:var(--primary);margin-bottom:.6rem;}
+.toggle-btn{background:var(--accent);color:#fff;border:none;padding:.4rem .9rem;border-radius:4px;cursor:pointer;font-size:.85rem;margin-top:.6rem;}
+.toggle-btn:hover{background:var(--primary);}
+.hidden{display:none;}
+.key-term{font-weight:700;color:var(--primary);}
+.warn-box{background:#fff8f0;border-left:4px solid var(--warn);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+.tip-box{background:#f0fff8;border-left:4px solid var(--success);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem;}
+th{background:var(--accent);color:#fff;padding:.6rem .9rem;text-align:center;}
+td{padding:.55rem .9rem;border:1px solid var(--border);text-align:center;}
+tr:nth-child(even){background:#f5faff;}
+.nav-bottom{display:flex;justify-content:space-between;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);}
+.nav-bottom a{color:var(--accent);text-decoration:none;font-size:.9rem;}
+.nav-bottom a:hover{text-decoration:underline;}
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script><!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- /Google Analytics 4 -->
+</head><body><header><div class="breadcrumb"><a href="index.html">ホーム</a> › 確率モデルの導入</div><h1>標本分布②（各種分布表）</h1><div class="meta">確率モデル 6-4b ｜ キーワード：標準正規分布・t分布・カイ二乗分布・F分布・上側確率点</div></header><div class="container">
+<div style="background:#fff8e1;border-left:5px solid #f9a825;padding:.9rem 1.2rem;margin-bottom:1.5rem;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.7;">
+  ⚠️ <strong>本サイトについて：</strong>
+  このサイトは統計検定2級の学習範囲を補助的にまとめたものであり、内容の完全性・正確性を保証するものではありません。
+  実際に受験される際は必ず<strong>公式問題集</strong>や公式テキストをご利用ください。<br>
+  📚 <strong>公式問題集（Amazon）：</strong>
+  <a href="https://www.amazon.co.jp/s?k=%E7%B5%B1%E8%A8%88%E6%A4%9C%E5%AE%9A+2%E7%B4%9A+%E5%85%AC%E5%BC%8F%E5%95%8F%E9%A1%8C%E9%9B%86&tag=YOUR-ASSOCIATE-TAG-22"
+     target="_blank" rel="noopener sponsored"
+     style="color:#1a73e8;font-weight:600;">
+    統計検定2級 公式問題集（Amazon）→
+  </a>
+  <span style="color:#999;font-size:.82rem;">（※Amazonアソシエイトリンク）</span>
+</div><div class="overview"><h2>学習目標</h2>正規母集団から導かれる標準正規分布・t分布・カイ二乗分布・F分布の性質を理解し、分布表を使った確率点の読み取りを習得する。</div><h2 class="section">1. 標準正規分布 \(N(0,1)\)</h2><div class="formula-box"><div class="label">標準化</div>\[Z=\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)\]</div><table><tr><th>\(lpha\)</th><th>0.10</th><th>0.05</th><th>0.025</th><th>0.01</th><th>0.005</th></tr><tr><td>\(z_lpha\)</td><td>1.282</td><td>1.645</td><td>1.960</td><td>2.326</td><td>2.576</td></tr></table><h2 class="section">2. t分布</h2><div class="formula-box"><div class="label">t統計量（σ未知のとき）</div>\[T=\frac{\bar{X}-\mu}{s/\sqrt{n}}\sim t(n-1)\]</div><p>特徴：対称・釣り鐘型。正規分布より裾が重い。自由度 \(	o\infty\) で標準正規分布に収束。</p><h2 class="section">3. カイ二乗分布 \(\chi^2\)</h2><div class="formula-box"><div class="label">カイ二乗統計量</div>\[\chi^2=\frac{(n-1)s^2}{\sigma^2}\sim\chi^2(n-1)\]</div><p>特徴：値は非負、右に裾が長い（右歪み）。分散の推測・適合度検定・独立性検定に使用。</p><h2 class="section">4. F分布</h2><div class="formula-box"><div class="label">F統計量</div>\[F=\frac{s_1^2/\sigma_1^2}{s_2^2/\sigma_2^2}\sim F(n_1-1,n_2-1)\]</div><p>特徴：値は非負、右に裾が長い。分子・分母の2つの自由度をパラメータに持つ。</p><div class="formula-box"><div class="label">F分布の対称性</div>\[F_{1-\alpha}(\phi_1,\phi_2)=\frac{1}{F_\alpha(\phi_2,\phi_1)}\]</div><h2 class="section">5. 分布間の関係</h2><table><tr><th>関係式</th><th>内容</th></tr><tr><td>\(Z^2\sim\chi^2(1)\)</td><td>標準正規の二乗はカイ二乗（自由度1）</td></tr><tr><td>\(T(\phi)^2=F(1,\phi)\)</td><td>t分布の二乗はF分布</td></tr></table><h2 class="section">6. 例題</h2><div class="example"><div class="example-title">【例題 17-1】t分布とNの使い分け</div><p>\(n=16\)の正規母集団から標本を取るとき、標準化した統計量は (a)\(\sigma^2=25\) 既知 (b)\(\sigma^2\) 未知で \(s^2=25\) の場合にどう異なるか。</p><div class="solution"><div class="solution-title">解答</div>(a) \(\sigma\) 既知：\(Z=(\bar{X}-\mu)/(5/4)\sim N(0,1)\)<br>(b) \(\sigma\) 未知・\(s\) 使用：\(T=(\bar{X}-\mu)/(s/4)\sim t(15)\)<br>（計算値は同じでも (a)は正規、(b)は自由度15のt分布）</div></div><div class="example"><div class="example-title">【例題 17-2】分布表の読み方</div><p>\(F_{0.95}(5,10)\) を求めよ。ただし \(F_{0.05}(10,5)=4.74\) とする。</p><div class="solution"><div class="solution-title">解答</div>\(F_{0.95}(5,10)=1/F_{0.05}(10,5)=1/4.74\approx\mathbf{0.211}\)<br>（F分布の対称性を使用）</div></div><h2 class="section">7. 練習問題</h2><div class="problem-block"><div class="problem-title">問題 1</div><p>正規母集団から \(n=25\) の標本を抽出したとき、\(\chi^2=(n-1)s^2/\sigma^2\) の自由度を求めよ。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>自由度 \(=n-1=25-1=\mathbf{24}\)</div></div><div class="problem-block"><div class="problem-title">問題 2</div><p>t分布と標準正規分布を比較したとき正しいものを選べ。<br>①t分布は標準正規分布と同じ形 ②t分布は正規分布より裾が重く、自由度が大きくなるほど正規分布に近づく ③t分布は非対称 ④t分布の確率点は自由度によらず一定</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div><strong>正解：②</strong><br>t分布は対称（③誤）で自由度パラメータを持つ（④誤）。自由度 \(	o\infty\) で標準正規分布に収束（②正、①誤）。</div></div><div class="problem-block"><div class="problem-title">問題 3</div><p>\(F\) 分布の上側確率点の対称性を使って \(F_{0.95}(3,8)\) を求めよ。ただし \(F_{0.05}(8,3)=8.85\) とする。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>\(F_{0.95}(3,8)=1/F_{0.05}(8,3)=1/8.85\approx\mathbf{0.113}\)</div></div><div class="nav-bottom"><a href="16_標本分布①.html">← 標本分布①</a><a href="18_推定①概念.html">次：推定①：点推定・区間推定の概念 →</a></div></div></body></html>

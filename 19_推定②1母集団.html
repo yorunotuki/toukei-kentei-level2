@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>推定②：1母集団の区間推定 | 統計検定2級</title><style>
+:root{--primary:#1a3a5c;--accent:#2e86c1;--light:#eaf4fb;--bg:#f0f6fb;--card:#fff;--text:#2c3e50;--muted:#7f8c8d;--border:#d5e8f3;--success:#27ae60;--warn:#e67e22;--danger:#e74c3c;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Sans','Meiryo',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+header{background:var(--primary);color:#fff;padding:1.5rem 2rem;}
+.breadcrumb{font-size:0.82rem;opacity:.7;margin-bottom:.4rem;}
+.breadcrumb a{color:#aad4f5;text-decoration:none;}
+header h1{font-size:1.6rem;font-weight:700;}
+header .meta{font-size:0.85rem;opacity:.75;margin-top:.3rem;}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem;}
+.overview{background:var(--light);border-left:5px solid var(--accent);padding:1rem 1.2rem;border-radius:0 6px 6px 0;margin-bottom:2rem;}
+.overview h2{font-size:1rem;color:var(--accent);margin-bottom:.4rem;}
+h2.section{font-size:1.25rem;font-weight:700;color:var(--primary);margin:2rem 0 1rem;border-bottom:2px solid var(--border);padding-bottom:.4rem;}
+h3.subsection{font-size:1.05rem;font-weight:700;color:var(--accent);margin:1.5rem 0 .6rem;}
+p,li{margin-bottom:.6rem;}
+ul,ol{padding-left:1.5rem;}
+.formula-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;overflow-x:auto;}
+.formula-box .label{font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:.3rem;}
+.example{background:#fff;border:1px solid #a9d4f5;border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0;}
+.example-title{font-weight:700;color:var(--accent);margin-bottom:.6rem;font-size:.95rem;}
+.solution{background:#f8fffe;border-left:3px solid var(--success);padding:.8rem 1rem;margin-top:.8rem;border-radius:0 6px 6px 0;}
+.solution-title{font-weight:700;color:var(--success);font-size:.85rem;margin-bottom:.4rem;}
+.problem-block{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;margin:1rem 0;}
+.problem-title{font-weight:700;color:var(--primary);margin-bottom:.6rem;}
+.toggle-btn{background:var(--accent);color:#fff;border:none;padding:.4rem .9rem;border-radius:4px;cursor:pointer;font-size:.85rem;margin-top:.6rem;}
+.toggle-btn:hover{background:var(--primary);}
+.hidden{display:none;}
+.key-term{font-weight:700;color:var(--primary);}
+.warn-box{background:#fff8f0;border-left:4px solid var(--warn);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+.tip-box{background:#f0fff8;border-left:4px solid var(--success);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem;}
+th{background:var(--accent);color:#fff;padding:.6rem .9rem;text-align:center;}
+td{padding:.55rem .9rem;border:1px solid var(--border);text-align:center;}
+tr:nth-child(even){background:#f5faff;}
+.nav-bottom{display:flex;justify-content:space-between;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);}
+.nav-bottom a{color:var(--accent);text-decoration:none;font-size:.9rem;}
+.nav-bottom a:hover{text-decoration:underline;}
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script><!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- /Google Analytics 4 -->
+</head><body><header><div class="breadcrumb"><a href="index.html">ホーム</a> › 推測</div><h1>推定②：1母集団の区間推定</h1><div class="meta">推測 7-2 ｜ キーワード：母平均・母分散・母比率・相関係数の区間推定・t分布・カイ二乗分布</div></header><div class="container">
+<div style="background:#fff8e1;border-left:5px solid #f9a825;padding:.9rem 1.2rem;margin-bottom:1.5rem;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.7;">
+  ⚠️ <strong>本サイトについて：</strong>
+  このサイトは統計検定2級の学習範囲を補助的にまとめたものであり、内容の完全性・正確性を保証するものではありません。
+  実際に受験される際は必ず<strong>公式問題集</strong>や公式テキストをご利用ください。<br>
+  📚 <strong>公式問題集（Amazon）：</strong>
+  <a href="https://www.amazon.co.jp/s?k=%E7%B5%B1%E8%A8%88%E6%A4%9C%E5%AE%9A+2%E7%B4%9A+%E5%85%AC%E5%BC%8F%E5%95%8F%E9%A1%8C%E9%9B%86&tag=YOUR-ASSOCIATE-TAG-22"
+     target="_blank" rel="noopener sponsored"
+     style="color:#1a73e8;font-weight:600;">
+    統計検定2級 公式問題集（Amazon）→
+  </a>
+  <span style="color:#999;font-size:.82rem;">（※Amazonアソシエイトリンク）</span>
+</div><div class="overview"><h2>学習目標</h2>正規母集団の母平均（σ既知・未知）・母分散・母比率・相関係数の区間推定の手順と公式を習得する。</div><h2 class="section">1. 母平均の区間推定</h2><h3 class="subsection">1.1 \(\sigma^2\) 既知の場合</h3><div class="formula-box"><div class="label">母平均の信頼区間（σ既知）</div>\[\bar{X}\pm z_{\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\]</div><h3 class="subsection">1.2 \(\sigma^2\) 未知の場合（最も多い）</h3><div class="formula-box"><div class="label">母平均の信頼区間（σ未知）</div>\[\bar{X}\pm t_{\alpha/2}(n-1)\cdot\frac{s}{\sqrt{n}}\]</div><div class="tip-box">\(n\ge30\) 程度あれば \(t\) 分布 \(\approx\) 標準正規分布となるため \(z\) で近似することもある。</div><h2 class="section">2. 母分散の区間推定</h2><div class="formula-box"><div class="label">母分散の信頼区間</div>\[\left[\frac{(n-1)s^2}{\chi^2_{\alpha/2}(n-1)},\; \frac{(n-1)s^2}{\chi^2_{1-\alpha/2}(n-1)}\right]\]</div><div class="warn-box">カイ二乗分布は非対称なため左右の確率点が異なる。\(\chi^2_{\alpha/2}\) が大きい方（分母が小さい→区間の上限）、\(\chi^2_{1-\alpha/2}\) が小さい方（区間の下限）。</div><h2 class="section">3. 母比率の区間推定</h2><div class="formula-box"><div class="label">母比率の信頼区間（正規近似）</div>\[\hat{p}\pm z_{\alpha/2}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]</div><p>適用目安：\(n\hat{p}\ge5\) かつ \(n(1-\hat{p})\ge5\)</p><h2 class="section">4. 例題</h2><div class="example"><div class="example-title">【例題 19-1】母平均の区間推定（σ未知）</div><p>\(n=16\)、\(\bar{x}=50\)、\(s=8\)（正規母集団）。母平均の95%信頼区間を求めよ。（\(t_{0.025}(15)=2.131\)）</p><div class="solution"><div class="solution-title">解答</div>SE \(=8/\sqrt{16}=2\)<br>\(50\pm2.131\times2=50\pm4.262\)<br><strong>\([45.74,\;54.26]\)</strong></div></div><div class="example"><div class="example-title">【例題 19-2】母比率の区間推定</div><p>1000人中380人が賛成。母比率の95%信頼区間を求めよ。（\(z_{0.025}=1.96\)）</p><div class="solution"><div class="solution-title">解答</div>\(\hat{p}=0.38\)<br>SE \(=\sqrt{0.38\times0.62/1000}\approx0.01535\)<br>\(0.38\pm1.96\times0.01535=0.38\pm0.0301\)<br><strong>\([0.350,\;0.410]\)</strong></div></div><div class="example"><div class="example-title">【例題 19-3】母分散の区間推定</div><p>\(n=10\)、\(s^2=16\)（正規母集団）。母分散の95%信頼区間を求めよ。（\(\chi^2_{0.025}(9)=19.02\)、\(\chi^2_{0.975}(9)=2.70\)）</p><div class="solution"><div class="solution-title">解答</div>\((n-1)s^2=144\)<br>下限：\(144/19.02\approx7.57\)、上限：\(144/2.70\approx53.33\)<br><strong>\([7.57,\;53.33]\)</strong></div></div><h2 class="section">5. 練習問題</h2><div class="problem-block"><div class="problem-title">問題 1</div><p>\(n=25\)、\(\bar{x}=100\)、\(s=15\)（正規母集団）。母平均の95%信頼区間を求めよ。（\(t_{0.025}(24)=2.064\)）</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>SE \(=15/\sqrt{25}=3\)<br>\(100\pm2.064\times3=100\pm6.19\)<br><strong>\([93.81,\;106.19]\)</strong></div></div><div class="problem-block"><div class="problem-title">問題 2</div><p>\(n=400\)、\(\hat{p}=0.6\)。母比率の99%信頼区間を求めよ。（\(z_{0.005}=2.576\)）</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>SE \(=\sqrt{0.6\times0.4/400}\approx0.02449\)<br>\(0.6\pm2.576\times0.02449=0.6\pm0.0631\)<br><strong>\([0.537,\;0.663]\)</strong></div></div><div class="problem-block"><div class="problem-title">問題 3</div><p>信頼区間の幅を半分にするには標本サイズを何倍にすればよいか。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div><strong>4倍</strong>。信頼区間の幅は \(1/\sqrt{n}\) に比例するため、幅を半分にするには \(\sqrt{n}\) を2倍にする必要があり、\(n\) を4倍にする。</div></div><div class="nav-bottom"><a href="18_推定①概念.html">← 推定①：点推定・区間推定の概念</a><a href="20_推定③2母集団.html">次：推定③：2母集団の区間推定 →</a></div></div></body></html>

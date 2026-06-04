@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>確率変数 | 統計検定2級</title><style>
+:root{--primary:#1a3a5c;--accent:#2e86c1;--light:#eaf4fb;--bg:#f0f6fb;--card:#fff;--text:#2c3e50;--muted:#7f8c8d;--border:#d5e8f3;--success:#27ae60;--warn:#e67e22;--danger:#e74c3c;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Sans','Meiryo',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+header{background:var(--primary);color:#fff;padding:1.5rem 2rem;}
+.breadcrumb{font-size:0.82rem;opacity:.7;margin-bottom:.4rem;}
+.breadcrumb a{color:#aad4f5;text-decoration:none;}
+header h1{font-size:1.6rem;font-weight:700;}
+header .meta{font-size:0.85rem;opacity:.75;margin-top:.3rem;}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem;}
+.overview{background:var(--light);border-left:5px solid var(--accent);padding:1rem 1.2rem;border-radius:0 6px 6px 0;margin-bottom:2rem;}
+.overview h2{font-size:1rem;color:var(--accent);margin-bottom:.4rem;}
+h2.section{font-size:1.25rem;font-weight:700;color:var(--primary);margin:2rem 0 1rem;border-bottom:2px solid var(--border);padding-bottom:.4rem;}
+h3.subsection{font-size:1.05rem;font-weight:700;color:var(--accent);margin:1.5rem 0 .6rem;}
+p,li{margin-bottom:.6rem;}
+ul,ol{padding-left:1.5rem;}
+.formula-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;overflow-x:auto;}
+.formula-box .label{font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:.3rem;}
+.example{background:#fff;border:1px solid #a9d4f5;border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0;}
+.example-title{font-weight:700;color:var(--accent);margin-bottom:.6rem;font-size:.95rem;}
+.solution{background:#f8fffe;border-left:3px solid var(--success);padding:.8rem 1rem;margin-top:.8rem;border-radius:0 6px 6px 0;}
+.solution-title{font-weight:700;color:var(--success);font-size:.85rem;margin-bottom:.4rem;}
+.problem-block{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;margin:1rem 0;}
+.problem-title{font-weight:700;color:var(--primary);margin-bottom:.6rem;}
+.toggle-btn{background:var(--accent);color:#fff;border:none;padding:.4rem .9rem;border-radius:4px;cursor:pointer;font-size:.85rem;margin-top:.6rem;}
+.toggle-btn:hover{background:var(--primary);}
+.hidden{display:none;}
+.key-term{font-weight:700;color:var(--primary);}
+.warn-box{background:#fff8f0;border-left:4px solid var(--warn);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+.tip-box{background:#f0fff8;border-left:4px solid var(--success);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem;}
+th{background:var(--accent);color:#fff;padding:.6rem .9rem;text-align:center;}
+td{padding:.55rem .9rem;border:1px solid var(--border);text-align:center;}
+tr:nth-child(even){background:#f5faff;}
+.nav-bottom{display:flex;justify-content:space-between;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);}
+.nav-bottom a{color:var(--accent);text-decoration:none;font-size:.9rem;}
+.nav-bottom a:hover{text-decoration:underline;}
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script><!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- /Google Analytics 4 -->
+</head><body><header><div class="breadcrumb"><a href="index.html">ホーム</a> › 確率モデルの導入</div><h1>確率変数</h1><div class="meta">確率モデル 6-2 ｜ キーワード：離散・連続型確率変数・期待値・分散・共分散・確率変数の和と差</div></header><div class="container">
+<div style="background:#fff8e1;border-left:5px solid #f9a825;padding:.9rem 1.2rem;margin-bottom:1.5rem;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.7;">
+  ⚠️ <strong>本サイトについて：</strong>
+  このサイトは統計検定2級の学習範囲を補助的にまとめたものであり、内容の完全性・正確性を保証するものではありません。
+  実際に受験される際は必ず<strong>公式問題集</strong>や公式テキストをご利用ください。<br>
+  📚 <strong>公式問題集（Amazon）：</strong>
+  <a href="https://www.amazon.co.jp/s?k=%E7%B5%B1%E8%A8%88%E6%A4%9C%E5%AE%9A+2%E7%B4%9A+%E5%85%AC%E5%BC%8F%E5%95%8F%E9%A1%8C%E9%9B%86&tag=YOUR-ASSOCIATE-TAG-22"
+     target="_blank" rel="noopener sponsored"
+     style="color:#1a73e8;font-weight:600;">
+    統計検定2級 公式問題集（Amazon）→
+  </a>
+  <span style="color:#999;font-size:.82rem;">（※Amazonアソシエイトリンク）</span>
+</div><div class="overview"><h2>学習目標</h2>確率変数の期待値・分散の計算、線形変換と確率変数の和・差の性質を理解する。2変数の共分散・相関係数も習得する。</div><h2 class="section">1. 確率変数の種類と確率分布</h2><table><tr><th>種類</th><th>説明</th><th>例</th></tr><tr><td>離散型</td><td>飛び飛びの値をとる</td><td>サイコロの目、合格者数</td></tr><tr><td>連続型</td><td>連続した値をとる</td><td>身長、反応時間</td></tr></table><h2 class="section">2. 期待値・分散・標準偏差</h2><div class="formula-box"><div class="label">期待値（離散型）</div>\[E[X]=\sum_i x_i p_i\]</div><div class="formula-box"><div class="label">分散</div>\[V[X]=E[(X-\mu)^2]=E[X^2]-(E[X])^2\]</div><h2 class="section">3. 線形変換の性質</h2><div class="formula-box"><div class="label">\(Y=aX+b\) のとき</div>\[E[aX+b]=aE[X]+b,\quad V[aX+b]=a^2V[X]\]</div><h2 class="section">4. 確率変数の和・差</h2><div class="formula-box"><div class="label">和の期待値（常に成立）</div>\[E[X+Y]=E[X]+E[Y]\]</div><div class="formula-box"><div class="label">和の分散（独立のとき）</div>\[V[X\pm Y]=V[X]+V[Y]\]</div><div class="warn-box">\(V[X-Y]=V[X]+V[Y]\) に注意！マイナスではなくプラスになる（分散は非負）。</div><div class="formula-box"><div class="label">一般の場合</div>\[V[X+Y]=V[X]+V[Y]+2\,\text{Cov}(X,Y)\]</div><h2 class="section">5. 共分散・相関係数</h2><div class="formula-box"><div class="label">共分散</div>\[\text{Cov}(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]=E[XY]-E[X]E[Y]\]</div><div class="formula-box"><div class="label">相関係数</div>\[\rho=\frac{\text{Cov}(X,Y)}{\sqrt{V[X]}\cdot\sqrt{V[Y]}}\]</div><p>\(X,Y\) が独立なら \(	ext{Cov}(X,Y)=0\)（逆は一般に成立しない）。</p><h2 class="section">6. 例題</h2><div class="example"><div class="example-title">【例題 14-1】期待値・分散の計算</div><p>確率変数 X の分布：x=0/p=0.1, x=1/p=0.3, x=2/p=0.4, x=3/p=0.2。期待値と分散を求めよ。</p><div class="solution"><div class="solution-title">解答</div>期待値：\(E[X]=0(0.1)+1(0.3)+2(0.4)+3(0.2)=1.7\)<br>\(E[X^2]=0+0.3+1.6+1.8=3.7\)<br>分散：\(V[X]=3.7-1.7^2=3.7-2.89=\mathbf{0.81}\)</div></div><div class="example"><div class="example-title">【例題 14-2】確率変数の和</div><p>独立な \(X,Y\) について \(E[X]=3,\;V[X]=4,\;E[Y]=2,\;V[Y]=9\)。\(Z=2X-Y+5\) の期待値・分散を求めよ。</p><div class="solution"><div class="solution-title">解答</div>\(E[Z]=2\times3-2+5=\mathbf{9}\)<br>\(V[Z]=4\times4+1^2\times9=16+9=\mathbf{25}\)（定数5は分散に影響しない）</div></div><h2 class="section">7. 練習問題</h2><div class="problem-block"><div class="problem-title">問題 1</div><p>サイコロを1回振る。目の値を \(X\) とする。(1)\(E[X]\) (2)\(V[X]\) (3)\(Y=3X-1\) の期待値と分散</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>(1) \(E[X]=21/6=\mathbf{3.5}\)<br>(2) \(E[X^2]=91/6\approx15.167\)、\(V[X]=91/6-(7/2)^2=35/12\approx\mathbf{2.917}\)<br>(3) \(E[Y]=3\times3.5-1=\mathbf{9.5}\)、\(V[Y]=9\times35/12\approx\mathbf{26.25}\)</div></div><div class="problem-block"><div class="problem-title">問題 2</div><p>独立な \(X,Y\) で \(V[X]=5,\;V[Y]=3\) のとき \(V[X+Y]\) と \(V[X-Y]\) を求めよ。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>\(V[X+Y]=5+3=\mathbf{8}\)<br>\(V[X-Y]=5+3=\mathbf{8}\)（和も差も同じ！）</div></div><div class="problem-block"><div class="problem-title">問題 3</div><p>\(E[X]=2,\;E[Y]=3,\;E[XY]=8,\;V[X]=4,\;V[Y]=9\) のとき共分散と相関係数を求めよ。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>\(\text{Cov}(X,Y)=8-2\times3=\mathbf{2}\)<br>\(\rho=2/(\sqrt{4}\times\sqrt{9})=2/6\approx\mathbf{0.333}\)</div></div><div class="nav-bottom"><a href="13_確率.html">← 確率</a><a href="15_確率分布.html">次：確率分布 →</a></div></div></body></html>

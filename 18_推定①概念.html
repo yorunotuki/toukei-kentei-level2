@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>推定①：点推定・区間推定の概念 | 統計検定2級</title><style>
+:root{--primary:#1a3a5c;--accent:#2e86c1;--light:#eaf4fb;--bg:#f0f6fb;--card:#fff;--text:#2c3e50;--muted:#7f8c8d;--border:#d5e8f3;--success:#27ae60;--warn:#e67e22;--danger:#e74c3c;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Sans','Meiryo',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+header{background:var(--primary);color:#fff;padding:1.5rem 2rem;}
+.breadcrumb{font-size:0.82rem;opacity:.7;margin-bottom:.4rem;}
+.breadcrumb a{color:#aad4f5;text-decoration:none;}
+header h1{font-size:1.6rem;font-weight:700;}
+header .meta{font-size:0.85rem;opacity:.75;margin-top:.3rem;}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem;}
+.overview{background:var(--light);border-left:5px solid var(--accent);padding:1rem 1.2rem;border-radius:0 6px 6px 0;margin-bottom:2rem;}
+.overview h2{font-size:1rem;color:var(--accent);margin-bottom:.4rem;}
+h2.section{font-size:1.25rem;font-weight:700;color:var(--primary);margin:2rem 0 1rem;border-bottom:2px solid var(--border);padding-bottom:.4rem;}
+h3.subsection{font-size:1.05rem;font-weight:700;color:var(--accent);margin:1.5rem 0 .6rem;}
+p,li{margin-bottom:.6rem;}
+ul,ol{padding-left:1.5rem;}
+.formula-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;overflow-x:auto;}
+.formula-box .label{font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:.3rem;}
+.example{background:#fff;border:1px solid #a9d4f5;border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0;}
+.example-title{font-weight:700;color:var(--accent);margin-bottom:.6rem;font-size:.95rem;}
+.solution{background:#f8fffe;border-left:3px solid var(--success);padding:.8rem 1rem;margin-top:.8rem;border-radius:0 6px 6px 0;}
+.solution-title{font-weight:700;color:var(--success);font-size:.85rem;margin-bottom:.4rem;}
+.problem-block{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;margin:1rem 0;}
+.problem-title{font-weight:700;color:var(--primary);margin-bottom:.6rem;}
+.toggle-btn{background:var(--accent);color:#fff;border:none;padding:.4rem .9rem;border-radius:4px;cursor:pointer;font-size:.85rem;margin-top:.6rem;}
+.toggle-btn:hover{background:var(--primary);}
+.hidden{display:none;}
+.key-term{font-weight:700;color:var(--primary);}
+.warn-box{background:#fff8f0;border-left:4px solid var(--warn);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+.tip-box{background:#f0fff8;border-left:4px solid var(--success);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem;}
+th{background:var(--accent);color:#fff;padding:.6rem .9rem;text-align:center;}
+td{padding:.55rem .9rem;border:1px solid var(--border);text-align:center;}
+tr:nth-child(even){background:#f5faff;}
+.nav-bottom{display:flex;justify-content:space-between;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);}
+.nav-bottom a{color:var(--accent);text-decoration:none;font-size:.9rem;}
+.nav-bottom a:hover{text-decoration:underline;}
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script><!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- /Google Analytics 4 -->
+</head><body><header><div class="breadcrumb"><a href="index.html">ホーム</a> › 推測</div><h1>推定①：点推定・区間推定の概念</h1><div class="meta">推測 7-1 ｜ キーワード：点推定・区間推定・推定量と推定値・不偏性・一致性・信頼区間</div></header><div class="container">
+<div style="background:#fff8e1;border-left:5px solid #f9a825;padding:.9rem 1.2rem;margin-bottom:1.5rem;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.7;">
+  ⚠️ <strong>本サイトについて：</strong>
+  このサイトは統計検定2級の学習範囲を補助的にまとめたものであり、内容の完全性・正確性を保証するものではありません。
+  実際に受験される際は必ず<strong>公式問題集</strong>や公式テキストをご利用ください。<br>
+  📚 <strong>公式問題集（Amazon）：</strong>
+  <a href="https://www.amazon.co.jp/s?k=%E7%B5%B1%E8%A8%88%E6%A4%9C%E5%AE%9A+2%E7%B4%9A+%E5%85%AC%E5%BC%8F%E5%95%8F%E9%A1%8C%E9%9B%86&tag=YOUR-ASSOCIATE-TAG-22"
+     target="_blank" rel="noopener sponsored"
+     style="color:#1a73e8;font-weight:600;">
+    統計検定2級 公式問題集（Amazon）→
+  </a>
+  <span style="color:#999;font-size:.82rem;">（※Amazonアソシエイトリンク）</span>
+</div><div class="overview"><h2>学習目標</h2>点推定・区間推定・推定量と推定値の違い、不偏性・一致性の定義、信頼区間の正しい解釈を理解する。</div><h2 class="section">1. 点推定と区間推定</h2><table><tr><th>種類</th><th>内容</th><th>例</th></tr><tr><td><strong>点推定</strong></td><td>1つの値でパラメータを推定</td><td>\(\hat{\mu}=\bar{x}=72.3\)</td></tr><tr><td><strong>区間推定</strong></td><td>区間でパラメータを推定</td><td>\([69.1,\ 75.5]\)（信頼区間）</td></tr></table><h2 class="section">2. 推定量と推定値</h2><ul><li><span class="key-term">推定量（estimator）</span>：標本から計算するための関数（確率変数）。例：\(\bar{X}\)</li><li><span class="key-term">推定値（estimate）</span>：実際のデータを代入した具体的な数値。例：\(\bar{x}=72.3\)</li></ul><h2 class="section">3. 不偏性と一致性</h2><div class="formula-box"><div class="label">不偏性</div>\[E[\hat{\theta}]=\theta \quad \text{（すべての } n \text{ で）}\]</div><div class="formula-box"><div class="label">一致性</div>\[\hat{\theta}\xrightarrow{P}\theta \quad (n\to\infty)\]</div><p>例：\(\bar{X}\) は \(\mu\) の不偏かつ一致推定量。不偏分散 \(s^2=\frac{1}{n-1}\sum(x_i-\bar{x})^2\) は \(\sigma^2\) の不偏推定量。</p><div class="warn-box"><strong>\(n\) で割る標本分散</strong> \(\hat{\sigma}^2=\frac{1}{n}\sum(x_i-\bar{x})^2\) は \(\sigma^2\) を<strong>過小評価</strong>する（偏りがある）。試験では \(n-1\) で割る不偏分散を使う。</div><h2 class="section">4. 信頼区間と信頼係数</h2><p><span class="key-term">信頼区間 \([L,U]\)</span>：真のパラメータが含まれると期待される区間。<br><span class="key-term">信頼係数</span>：同じ手続きを繰り返したとき、区間が真の値を含む割合（95%など）。</p><div class="warn-box"><strong>正しい解釈</strong>：「同じ手続きで100回区間を作ると約95回は真の値を含む」。「この区間が真の値を95%の確率で含む」とは<strong>意味が異なる</strong>。試験で問われることが多い。</div><h2 class="section">5. 例題</h2><div class="example"><div class="example-title">【例題 18-1】不偏性の確認</div><p>母集団 \(\{1,3,5\}\)（母平均 \(\mu=3\)）から復元抽出で \(n=2\) の標本を取るとき、\(\bar{X}\) の期待値を求め不偏推定量かどうか確認せよ。</p><div class="solution"><div class="solution-title">解答</div>可能な標本（各確率1/9）の \(\bar{X}\) の値：1,2,3,2,3,4,3,4,5<br>\(E[\bar{X}]=(1+2+3+2+3+4+3+4+5)/9=27/9=\mathbf{3}=\mu\) ✓<br>\(\bar{X}\) は \(\mu\) の不偏推定量。</div></div><div class="example"><div class="example-title">【例題 18-2】信頼区間の解釈</div><p>「母平均の95%信頼区間は [68.5, 75.5]」について正しい解釈はどれか。<br>①母平均が68.5〜75.5に含まれる確率は95%<br>②この手続きを繰り返すと約95%の区間が母平均を含む<br>③信頼係数95%は有意水準5%に対応する</p><div class="solution"><div class="solution-title">解答</div><strong>正解：②と③</strong><br>①誤：母平均は固定した定数。「確率95%」は区間（確率変数）が真の値を含む頻度の記述。②正：頻度論的な正しい解釈。③正：信頼係数 \(1-\alpha=0.95\) は有意水準 \(\alpha=0.05\) に対応。</div></div><h2 class="section">6. 練習問題</h2><div class="problem-block"><div class="problem-title">問題 1</div><p>不偏推定量の定義として正しいものはどれか。<br>①標本サイズが大きくなるほど精度が上がる推定量<br>②推定量の期待値が真のパラメータと一致する推定量<br>③推定値のばらつきが最も小さい推定量<br>④95%の確率で真の値を含む区間を与える推定量</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div><strong>正解：②</strong><br>①は一致性、③は最小分散不偏推定量（MVUE）、④は区間推定の説明。</div></div><div class="problem-block"><div class="problem-title">問題 2</div><p>不偏分散で \(n-1\) で割る理由を説明せよ。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>偏差の計算に真の \(\mu\) ではなく標本から推定した \(\bar{x}\) を使うため自由度が1つ失われる。\(n\) で割ると \(\sigma^2\) を過小評価する（偏りがある）。\(n-1\) で割ることで不偏性が成立する（ベッセルの補正）。</div></div><div class="problem-block"><div class="problem-title">問題 3</div><p>一致性と不偏性の違いを説明し、「一致だが不偏でない推定量」の例を示せ。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div><strong>不偏性</strong>：どの \(n\) でも \(E[\hat{\theta}]=\theta\)（有限標本の性質）。<br><strong>一致性</strong>：\(n\to\infty\) で確率収束（大標本の性質）。<br>例：\(\hat{\mu}=\bar{X}+1/n\) は \(E[\hat{\mu}]=\mu+1/n\ne\mu\) なので不偏でないが、\(n\to\infty\) で \(\mu\) に収束するため一致推定量。</div></div><div class="nav-bottom"><a href="17_標本分布②.html">← 標本分布②</a><a href="19_推定②1母集団.html">次：推定②：1母集団の区間推定 →</a></div></div></body></html>

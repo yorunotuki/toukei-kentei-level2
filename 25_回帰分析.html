@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>回帰分析（重回帰） | 統計検定2級</title><style>
+:root{--primary:#1a3a5c;--accent:#2e86c1;--light:#eaf4fb;--bg:#f0f6fb;--card:#fff;--text:#2c3e50;--muted:#7f8c8d;--border:#d5e8f3;--success:#27ae60;--warn:#e67e22;--danger:#e74c3c;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hiragino Sans','Meiryo',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;}
+header{background:var(--primary);color:#fff;padding:1.5rem 2rem;}
+.breadcrumb{font-size:0.82rem;opacity:.7;margin-bottom:.4rem;}
+.breadcrumb a{color:#aad4f5;text-decoration:none;}
+header h1{font-size:1.6rem;font-weight:700;}
+header .meta{font-size:0.85rem;opacity:.75;margin-top:.3rem;}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem;}
+.overview{background:var(--light);border-left:5px solid var(--accent);padding:1rem 1.2rem;border-radius:0 6px 6px 0;margin-bottom:2rem;}
+.overview h2{font-size:1rem;color:var(--accent);margin-bottom:.4rem;}
+h2.section{font-size:1.25rem;font-weight:700;color:var(--primary);margin:2rem 0 1rem;border-bottom:2px solid var(--border);padding-bottom:.4rem;}
+h3.subsection{font-size:1.05rem;font-weight:700;color:var(--accent);margin:1.5rem 0 .6rem;}
+p,li{margin-bottom:.6rem;}
+ul,ol{padding-left:1.5rem;}
+.formula-box{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;overflow-x:auto;}
+.formula-box .label{font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:.3rem;}
+.example{background:#fff;border:1px solid #a9d4f5;border-radius:8px;padding:1.2rem 1.4rem;margin:1.5rem 0;}
+.example-title{font-weight:700;color:var(--accent);margin-bottom:.6rem;font-size:.95rem;}
+.solution{background:#f8fffe;border-left:3px solid var(--success);padding:.8rem 1rem;margin-top:.8rem;border-radius:0 6px 6px 0;}
+.solution-title{font-weight:700;color:var(--success);font-size:.85rem;margin-bottom:.4rem;}
+.problem-block{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.4rem;margin:1rem 0;}
+.problem-title{font-weight:700;color:var(--primary);margin-bottom:.6rem;}
+.toggle-btn{background:var(--accent);color:#fff;border:none;padding:.4rem .9rem;border-radius:4px;cursor:pointer;font-size:.85rem;margin-top:.6rem;}
+.toggle-btn:hover{background:var(--primary);}
+.hidden{display:none;}
+.key-term{font-weight:700;color:var(--primary);}
+.warn-box{background:#fff8f0;border-left:4px solid var(--warn);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+.tip-box{background:#f0fff8;border-left:4px solid var(--success);padding:.8rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.95rem;}
+th{background:var(--accent);color:#fff;padding:.6rem .9rem;text-align:center;}
+td{padding:.55rem .9rem;border:1px solid var(--border);text-align:center;}
+tr:nth-child(even){background:#f5faff;}
+.nav-bottom{display:flex;justify-content:space-between;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);}
+.nav-bottom a{color:var(--accent);text-decoration:none;font-size:.9rem;}
+.nav-bottom a:hover{text-decoration:underline;}
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script><!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- /Google Analytics 4 -->
+</head><body><header><div class="breadcrumb"><a href="index.html">ホーム</a> › 線形モデル</div><h1>回帰分析（重回帰）</h1><div class="meta">線形モデル 8-1 ｜ キーワード：偏回帰係数・回帰係数の検定・多重共線性・ダミー変数・自由度調整済みR²</div></header><div class="container">
+<div style="background:#fff8e1;border-left:5px solid #f9a825;padding:.9rem 1.2rem;margin-bottom:1.5rem;border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.7;">
+  ⚠️ <strong>本サイトについて：</strong>
+  このサイトは統計検定2級の学習範囲を補助的にまとめたものであり、内容の完全性・正確性を保証するものではありません。
+  実際に受験される際は必ず<strong>公式問題集</strong>や公式テキストをご利用ください。<br>
+  📚 <strong>公式問題集（Amazon）：</strong>
+  <a href="https://www.amazon.co.jp/s?k=%E7%B5%B1%E8%A8%88%E6%A4%9C%E5%AE%9A+2%E7%B4%9A+%E5%85%AC%E5%BC%8F%E5%95%8F%E9%A1%8C%E9%9B%86&tag=YOUR-ASSOCIATE-TAG-22"
+     target="_blank" rel="noopener sponsored"
+     style="color:#1a73e8;font-weight:600;">
+    統計検定2級 公式問題集（Amazon）→
+  </a>
+  <span style="color:#999;font-size:.82rem;">（※Amazonアソシエイトリンク）</span>
+</div><div class="overview"><h2>学習目標</h2>重回帰モデルの構造と偏回帰係数の解釈、自由度調整済み決定係数によるモデル比較、多重共線性・ダミー変数の概念を習得する。</div><h2 class="section">1. 重回帰モデル</h2><div class="formula-box"><div class="label">重回帰モデル</div>\[y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k + \varepsilon\]</div><p><span class="key-term">偏回帰係数 \(\hat{\beta}_j\)</span>：他のすべての説明変数を一定に保ったまま、\(x_j\) が1単位増加したときの \(y\) の変化量の推定値（偏微分的な解釈）。</p><div class="warn-box">単回帰と重回帰では係数の値・符号が異なる場合がある（交絡変数の影響）。</div><h2 class="section">2. 自由度調整済み決定係数</h2><div class="formula-box"><div class="label">決定係数（再掲）</div>\[R^2 = 1-\frac{SSE}{SST}\]</div><p>重回帰では説明変数を増やすと \(R^2\) は必ず上がる。<span class="key-term">自由度調整済み決定係数 \(\bar{R}^2\)</span> はペナルティを加える：</p><div class="formula-box"><div class="label">自由度調整済み決定係数</div>\[\bar{R}^2 = 1-(1-R^2)\frac{n-1}{n-k-1}\]</div><div class="tip-box"><strong>モデル比較には \(\bar{R}^2\) を使う。</strong>有用な変数を加えると増加、不要な変数を加えると減少することがある。</div><h2 class="section">3. 回帰係数の検定</h2><div class="formula-box"><div class="label">t統計量（各係数の有意性検定）</div>\[T=\frac{\hat{\beta}_j}{\text{SE}(\hat{\beta}_j)}\sim t(n-k-1)\]</div><p>\(H_0:\beta_j=0\) vs \(H_1:\beta_j\ne0\)（両側検定）。\(|T|>t_{\alpha/2}(n-k-1)\) で棄却（有意な変数）。</p><h2 class="section">4. 多重共線性（Multicollinearity）</h2><p>説明変数どうしが強い相関を持つ状態。問題：偏回帰係数の推定が不安定、標準誤差が増大する。</p><ul><li><strong>検出方法</strong>：変数間の相関行列、VIF（分散拡大因子）を確認</li><li><strong>VIF \(> 10\)</strong>（目安）：深刻な多重共線性の可能性</li><li><strong>対処</strong>：相関の高い変数の一方を除く、主成分分析を使う</li></ul><h2 class="section">5. ダミー変数を用いた回帰</h2><p>質的変数（カテゴリ変数）を回帰モデルに組み込む方法。</p><p>\(k\) カテゴリの変数には <strong>\(k-1\) 個のダミー変数</strong>を作る（ダミー変数トラップ回避）。</p><div class="formula-box"><div class="label">例：性別ダミー（男性=1、女性=0を基準）</div>\[y = \beta_0 + \beta_1 x + \beta_2 D + \varepsilon\]</div><p>\(\hat{\beta}_2\) は「女性と比べたときの男性の上乗せ効果」。</p><h2 class="section">6. 例題</h2><div class="example"><div class="example-title">【例題 25-1】重回帰出力の読み取り</div><p>\(n=30\)、\(k=2\) の重回帰分析結果：切片=10.5（p=0.003）、\(x_1\) の係数=3.2（p=0.004）、\(x_2\) の係数=−1.5（p=0.743）、\(R^2=0.72\)。(1)\(\bar{R}^2\) を求めよ。(2)有意な説明変数はどれか（\(\alpha=0.05\)）。(3)\(x_1=3,x_2=2\) のとき \(\hat{y}\) を求めよ。</p><div class="solution"><div class="solution-title">解答</div>(1) \(\bar{R}^2=1-(1-0.72)\times29/27=1-0.300=\mathbf{0.700}\)<br>(2) \(x_1\) のみ（\(p=0.004<0.05\)）。\(x_2\) は \(p=0.743>0.05\) で有意でない。<br>(3) \(\hat{y}=10.5+3.2\times3+(-1.5)\times2=10.5+9.6-3.0=\mathbf{17.1}\)</div></div><div class="example"><div class="example-title">【例題 25-2】ダミー変数の解釈</div><p>年収（万円）を被説明変数、勤続年数 \(x_1\)（年）と性別ダミー \(D\)（男=1, 女=0）の回帰式が \(\hat{y}=300+20x_1+50D\)。(1)勤続年数が1年増えると年収はどう変わるか。(2)同じ勤続年数の男女の年収差の推定値は？</p><div class="solution"><div class="solution-title">解答</div>(1) 性別固定で勤続年数1年増加→年収が<strong>20万円増加</strong>。<br>(2) \(\hat{\beta}_2=50\) なので同じ勤続年数で<strong>男性は女性より50万円高い</strong>と推定される。</div></div><h2 class="section">7. 練習問題</h2><div class="problem-block"><div class="problem-title">問題 1</div><p>重回帰でモデル比較に \(\bar{R}^2\) を使う理由を説明せよ。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>\(R^2\) は変数を追加するほど必ず増加（または同値）するため、不要な変数を加えてもモデルが良くなったように見えてしまう。\(\bar{R}^2\) は変数の数にペナルティを与え、有用な変数を加えたときだけ増加するため、モデル比較に適切。</div></div><div class="problem-block"><div class="problem-title">問題 2</div><p>4カテゴリの質的変数を回帰モデルに組み込む場合、ダミー変数はいくつ必要か。また、基準カテゴリの意味を説明せよ。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div>ダミー変数は <strong>3個</strong>（\(k-1=4-1\)）。基準カテゴリ（4つ目）は切片 \(\beta_0\) に含まれ、各ダミー係数は「基準カテゴリとの差（上乗せ効果）」を表す。4つ全部作ると多重共線性（完全な線形従属）が発生するため1つ除く。</div></div><div class="problem-block"><div class="problem-title">問題 3</div><p>説明変数 \(x_1\) と \(x_2\) の相関係数が \(r=0.97\) のとき起こりうる問題と対処法を述べよ。</p><button class="toggle-btn" onclick="this.nextElementSibling.classList.toggle('hidden')">解答を見る</button><div class="solution hidden"><div class="solution-title">解答</div><strong>多重共線性の問題</strong>。\(x_1\) と \(x_2\) がほぼ同じ情報を持っており、偏回帰係数の推定が不安定（標準誤差増大、係数の符号が反転するなど）になる。<br>対処法：①相関の高い変数の一方を除く ②変数を合成（主成分分析） ③リッジ回帰などの正則化手法。</div></div><div class="nav-bottom"><a href="24_仮説検定④適合度・独立性.html">← 仮説検定④：適合度・独立性の検定</a><a href="26_実験計画.html">次：実験計画（分散分析） →</a></div></div></body></html>
